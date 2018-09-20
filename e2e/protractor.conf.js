@@ -20,6 +20,7 @@ exports.config = {
     print: function() {}
   },
   onPrepare() {
+    console.log('this is a test');
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.e2e.json')
     });

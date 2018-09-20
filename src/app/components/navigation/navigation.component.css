@@ -1,0 +1,16 @@
+.active {
+  color: darkgray
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color:transparent;
+}
+
+.menu-icon {
+  font-size: 4em;
+  margin-top: 20px;
+}
