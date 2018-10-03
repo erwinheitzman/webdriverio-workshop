@@ -8,6 +8,7 @@
 
 mat-toolbar {
   background-color:transparent;
+  margin-bottom: 40px;
 }
 
 .menu-icon {

@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+  subject;
 
-  constructor() { }
+  constructor() {
+    this.subject = '';
+  }
 
   ngOnInit() {
   }

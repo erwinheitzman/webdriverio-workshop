@@ -1,0 +1,12 @@
+/* .full-width {
+  margin: auto;
+  text-align: center;
+  display: block;
+  width: 100%;
+  max-width: 800px;
+} */
+
+.header {
+  background: linear-gradient(to right, #1e5799 0%,#72d377 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#72d377',GradientType=1 );
+}

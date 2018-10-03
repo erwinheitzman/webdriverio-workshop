@@ -1,0 +1,7 @@
+.full-width {
+  margin: auto;
+  text-align: center;
+  display: block;
+  width: 100%;
+  max-width: 800px;
+}
