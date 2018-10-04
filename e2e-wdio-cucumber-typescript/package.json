@@ -1,0 +1,23 @@
+{
+  "name": "e2e-wdio-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/tsc -p . && ./node_modules/.bin/wdio"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cucumber": "^4.0.4",
+    "@types/webdriverio": "^4.10.4",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.1",
+    "wdio-cucumber-framework": "^2.2.7",
+    "wdio-dot-reporter": "0.0.10",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "webdriverio": "^4.13.2"
+  }
+}

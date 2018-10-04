@@ -13,7 +13,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './e2e-wdio-typescript/features/**/*.feature'
+        './features/**/*.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -133,7 +133,7 @@ exports.config = {
     cucumberOpts: {
         compiler: ['ts:ts-node/register'],
         // require: ['./dist/out-tsc/features/step-definitions/**/*.js'],        // <string[]> (file/dir) require files before executing features
-        require: ['./out-tsc/e2e/**/*.js'],        // <string[]> (file/dir) require files before executing features
+        require: ['../out-tsc/e2e/**/*.js'],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps

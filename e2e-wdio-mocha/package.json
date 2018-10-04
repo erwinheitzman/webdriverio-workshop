@@ -1,0 +1,20 @@
+{
+  "name": "e2e-wdio-mocha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wdio.conf.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "webdriverio": "^4.13.2"
+  },
+  "devDependencies": {
+    "wdio-dot-reporter": "0.0.10",
+    "wdio-mocha-framework": "^0.6.3",
+    "wdio-selenium-standalone-service": "0.0.10"
+  }
+}

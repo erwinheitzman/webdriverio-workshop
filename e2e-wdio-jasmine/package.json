@@ -1,0 +1,23 @@
+{
+  "name": "e2e-wdio-jasmine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/wdio"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "webdriverio": "^4.13.2"
+  },
+  "devDependencies": {
+    "wdio-dot-reporter": "0.0.10",
+    "wdio-jasmine-framework": "^0.3.6",
+    "wdio-selenium-standalone-service": "0.0.10"
+  }
+}

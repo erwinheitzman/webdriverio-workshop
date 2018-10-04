@@ -17,5 +17,3 @@ Then('Title should match {string}', (title) => {
 When('I type {string} into the searchbar', (input) => {
   tipsAndTricksPage.searchBar.setValue(input);
 });
-
-// TODO: use chai-as-promised in order to use .eventually
