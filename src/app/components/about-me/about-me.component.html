@@ -1,3 +1,52 @@
-<p>
-  about-me works!
-</p>
+<div class="card-container">
+  <mat-card class="card">
+    <mat-card-header class="header">
+      <mat-card-title>About me</mat-card-title>
+      <mat-card-subtitle>Life is strange but so am I</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="text-align:left; margin:10% auto 10% auto; width:600px">
+      <p *ngFor="let row of intro">{{row}}</p>
+      <p>Software skills:</p>
+      <ul>
+        <li *ngFor="let topic of topics">{{topic}}
+          <ul>
+            <li *ngFor="let skill of skills[topic]">{{skill}}</li>
+          </ul>
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-header class="header">
+      <mat-card-title>Send me a message!</mat-card-title>
+      <mat-card-subtitle>Spread the passion like peanutbutter</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Name">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Last name">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Email">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <textarea matInput placeholder="Leave a message"></textarea>
+          </mat-form-field>
+        </p>
+        <p>
+          <button mat-button color="primary" type="submit" [disabled]="submitted">Submit</button>
+        </p>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

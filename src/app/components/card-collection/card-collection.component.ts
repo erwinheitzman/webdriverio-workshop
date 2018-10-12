@@ -1,21 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { CardComponent } from '../card/card.component';
-
-// interface CardCollection {
-//   list: {subject: string}[];
-// }
-
-export class CardCollectionListComponent {
-  list = [
-    { subject: 'dog' },
-    { subject: 'cat' },
-    { subject: 'dog' }
-    // new CardComponent('dog'),
-    // new CardComponent('cat'),
-    // new CardComponent('dog')
-  ];
-}
+import { Card } from '../card';
+import { CardCollectionService } from './card-collection.service';
 
 @Component({
   selector: 'app-card-collection',
@@ -23,11 +8,16 @@ export class CardCollectionListComponent {
   styleUrls: ['./card-collection.component.css']
 })
 export class CardCollectionComponent implements OnInit {
-  collection = new CardCollectionListComponent().list;
+  cardCollection: Card[];
 
-  constructor() { }
+  constructor(private cardCollectionService: CardCollectionService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.cardCollectionService.filteredCardCollection$.subscribe((cards: Card[]) => {
+      if (cards) {
+        this.cardCollection = cards;
+      }
+    });
   }
 
 }

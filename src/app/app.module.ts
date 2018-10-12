@@ -9,7 +9,9 @@ import {
   MatMenuModule,
   MatIconModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSlideToggleModule,
+  MatDialogModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,12 +19,13 @@ import { AppComponent } from './app.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { TipsAndTricksComponent } from './components/tips-and-tricks/tips-and-tricks.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { CardComponent } from './components/card/card.component';
 import { MissingPageComponent } from './components/missing-page/missing-page.component';
 import { CardCollectionComponent } from './components/card-collection/card-collection.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 @NgModule({
@@ -37,20 +40,24 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSlideToggleModule,
+    MatDialogModule
   ],
   declarations: [
     AppComponent,
     AboutMeComponent,
     TipsAndTricksComponent,
     HeaderComponent,
-    NavigationComponent,
+    ToolbarComponent,
     CardComponent,
     CardCollectionComponent,
     MissingPageComponent,
     HomeComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    DialogComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  entryComponents: [DialogComponent]
 })
 export class AppModule { }

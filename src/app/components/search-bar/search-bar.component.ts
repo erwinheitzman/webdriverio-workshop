@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { CardCollectionListComponent } from '../card-collection/card-collection.component';
-
-const cardCollectionListComponent = new CardCollectionListComponent();
+import { CardCollectionService } from '../card-collection/card-collection.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,17 +7,11 @@ const cardCollectionListComponent = new CardCollectionListComponent();
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent {
-  values = '';
-  words = cardCollectionListComponent.list.map(obj => obj.subject);
 
-  constructor() { }
+  constructor(private cardCollectionService: CardCollectionService) { }
 
   onKey(value: string) {
-    if (this.words.includes(value)) {
-      this.values = value;
-    } else {
-      this.values = '';
-    }
+    this.cardCollectionService.filter(value);
   }
 
 }

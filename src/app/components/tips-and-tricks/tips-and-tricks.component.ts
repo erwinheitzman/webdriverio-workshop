@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tips-and-tricks',
@@ -6,7 +6,6 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./tips-and-tricks.component.css']
 })
 export class TipsAndTricksComponent implements OnInit {
-  title = 'sdfsfdsfsdf';
 
   constructor() { }
 

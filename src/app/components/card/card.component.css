@@ -6,7 +6,6 @@
   display: inline-block;
 }
 
-.image {
-  margin: 0px;
-  padding: 0px;
+.header  {
+  display: block;
 }
