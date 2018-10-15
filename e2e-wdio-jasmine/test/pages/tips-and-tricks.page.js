@@ -8,4 +8,8 @@ module.exports = class TipsAndTricksPage extends Page {
     this.card = new Card();
     this.searchBar = searchBar();
   }
+
+  navigateTo() {
+    super.navigateTo('tips-and-tricks');
+  }
 }

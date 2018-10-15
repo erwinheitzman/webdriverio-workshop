@@ -1,3 +1,5 @@
-module.exports = function searchBar () {
-  return $('.mat-form-field');
+module.exports = class Search {
+  get bar() {
+    return $('#searchbar');
+  }
 }

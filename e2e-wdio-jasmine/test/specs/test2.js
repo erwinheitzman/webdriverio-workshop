@@ -7,6 +7,6 @@ describe('a', () => {
   it('b', () => {
     tipsAndTricksPage.navigateTo();
     tipsAndTricksPage.card.title.waitForVisible();
-    expect(tipsAndTricksPage.card.title.getText()).to.equal('test1');
+    expect(tipsAndTricksPage.card.title.getText()).to.equal('Golden Retriever');
   });
 });

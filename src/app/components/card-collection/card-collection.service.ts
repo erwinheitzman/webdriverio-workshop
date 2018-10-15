@@ -16,8 +16,8 @@ export class CardCollectionService {
     if (!value.length) {
       setTimeout(() => this.filteredCardCollection$.next(CARDS), timeout);
     } else if (value.length > 2) {
-      console.log(2);
-      setTimeout(() => this.filteredCardCollection$.next(CARDS.filter(card => value.includes(card.title))), timeout);
+      const sortByMatch = card => (value.includes(card.title) || card.title.includes(value));
+      setTimeout(() => this.filteredCardCollection$.next(CARDS.filter(sortByMatch)), timeout);
     }
   }
 

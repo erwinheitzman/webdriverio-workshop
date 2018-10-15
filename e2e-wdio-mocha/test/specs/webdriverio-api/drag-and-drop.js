@@ -1,4 +1,4 @@
-describe.skip('drag and drop -> remove elements', () => {
+describe('drag and drop -> remove elements', () => {
   before(() => {
     browser.url('https://marcojakob.github.io/dart-dnd/basic/');
   });

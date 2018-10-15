@@ -1,5 +1,5 @@
 module.exports = class Page {
-  navigateTo() {
-    browser.url('/');
+  navigateTo(path) {
+    browser.url(path);
   }
 }
