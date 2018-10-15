@@ -6,9 +6,7 @@
     "start": "ng serve --aot",
     "build": "ng build --aot",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "e2e:wdio": "./node_modules/.bin/tsc -p . && ./node_modules/.bin/wdio"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {

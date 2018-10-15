@@ -1,7 +1,13 @@
 const fs = require('fs');
 const tsConfig = require('./tsconfig');
 
+const debug = process.env.DEBUG;
+
 exports.config = {
+    execArgv: debug ? ['--inspect'] : [],
+
+    // user: process.env.SAUCE_USERNAME,
+    // key: process.env.SAUCE_ACCESS_KEY,
 
     //
     // ==================
@@ -35,13 +41,13 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: debug ? 1 : 10,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
+    capabilities: debug ? [{ browserName: 'chrome' }] : [{
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
@@ -133,7 +139,7 @@ exports.config = {
     cucumberOpts: {
         compiler: ['ts:ts-node/register'],
         // require: ['./dist/out-tsc/features/step-definitions/**/*.js'],        // <string[]> (file/dir) require files before executing features
-        require: ['../out-tsc/e2e/**/*.js'],        // <string[]> (file/dir) require files before executing features
+        require: ['./out-tsc/e2e/**/*.js'],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
@@ -145,7 +151,7 @@ exports.config = {
         profile: [],        // <string[]> (name) specify the profile to use
         strict: false,      // <boolean> fail if there are any undefined or pending steps
         tags: [],           // <string[]> (expression) only execute the features or scenarios with tags matching the expression
-        timeout: 20000,     // <number> timeout for step definitions
+        timeout: debug ? (24 * 60 * 60 * 1000) : 20000,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
 
@@ -194,9 +200,11 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    //   require('ts-node/register');
-    // },
+    before: function (capabilities, specs) {
+      // browser.timeouts('script', 3000);
+      // browser.timeouts('implicit', 3000);
+      // browser.timeouts('page load', 10);
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

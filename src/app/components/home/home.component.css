@@ -1,0 +1,68 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  margin: auto;
+  text-align: center;
+  display: inline-flex;
+  overflow: auto;
+}
+
+.code {
+  background-image: url('../../../assets/images/code.jpg');
+  background-repeat: no-repeat;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  display: inline-flex;
+}
+
+.code::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to left, #000, rgba(255, 255, 255, 0) 30%),
+                    linear-gradient(to right, #011e4c, rgba(255, 255, 255, 0) 30%);
+  background-color: linear-gradient(#011e4c, #000);
+  height: 100%;
+  width: 1920px;
+  content: '';
+}
+
+.name {
+  position: absolute;
+  color: white;
+  text-shadow: -10px 0 black, 0 5px black, 10px 0 black, 0 -5px black;
+  top: 36%;
+  left: 20%;
+  font-family: Oswald;
+  font-size: 2rem;
+  font-weight: bolder;
+  /* max-width: 60%;
+  max-height: 60%; */
+}
+
+@media only screen and (min-width: 600px)
+{
+  .container {
+    height: 75%;
+  }
+  .name
+  {
+    font-size: 4rem;
+    text-shadow: -4px 0 black, 0 2px black, 4px 0 black, 0 -2px black;
+  }
+}
+
+@media only screen and (min-width: 1200px)
+{
+  .container {
+    height: 100%;
+  }
+  .name
+  {
+    font-size: 6rem;
+    text-shadow: -8px 0 black, 0 4px black, 8px 0 black, 0 -4px black;
+  }
+}
