@@ -10,13 +10,18 @@ export class CardCollectionService {
   filteredCardCollection$: BehaviorSubject<Card[]> = new BehaviorSubject<Card[]>(CARDS);
 
   filter(value) {
+    const sortByMatch = card => {
+      const lcValue = value.toLowerCase();
+      const lcTitle = card.title.toLowerCase();
+      return (lcValue.includes(lcTitle) || lcTitle.includes(lcValue));
+    };
+
     // random timeout for testing purpose
     const timeout = Math.floor(Math.random() * Math.floor(5) * 1000);
 
     if (!value.length) {
       setTimeout(() => this.filteredCardCollection$.next(CARDS), timeout);
     } else if (value.length > 2) {
-      const sortByMatch = card => (value.includes(card.title) || card.title.includes(value));
       setTimeout(() => this.filteredCardCollection$.next(CARDS.filter(sortByMatch)), timeout);
     }
   }
