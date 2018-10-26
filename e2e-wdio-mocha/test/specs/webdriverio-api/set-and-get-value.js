@@ -19,4 +19,5 @@ describe('tips and tricks page', () => {
       browser.waitUntil(() => tipsAndTricksPage.card.title.getText() === 'Playing puppies');
     });
   });
+
 });
