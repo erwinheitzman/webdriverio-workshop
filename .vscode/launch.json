@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+    "name": "WebdriverIO",
+    "type": "node",
+    "request": "launch",
+    "protocol": "inspector",
+    "address": "localhost",
+    "port": 5859,
+    "timeout": 20000,
+    "runtimeExecutable": "${workspaceRoot}/e2e-wdio-cucumber-typescript/node_modules/.bin/wdio",
+    "cwd": "${workspaceRoot}/e2e-wdio-cucumber-typescript",
+    "console": "integratedTerminal",
+    "args": [
+      // "--spec", "test/specs/webdriverio-api/alerts.js",
+    ],
+    "env": {
+      "DEBUG": "true",
+    }
+  }]
+}

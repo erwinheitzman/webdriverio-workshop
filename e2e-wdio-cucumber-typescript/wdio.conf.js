@@ -1,7 +1,17 @@
 const fs = require('fs');
-const tsConfig = require('./tsconfig');
 
 const debug = process.env.DEBUG;
+
+const seleniumOptions = {
+  drivers: {
+    chrome: {
+      version: '2.43'
+    },
+    firefox: {
+      version: '0.23.0'
+    }
+  }
+};
 
 function removeDirSync(path) {
   if (fs.existsSync(path)) {
@@ -18,7 +28,11 @@ function removeDirSync(path) {
 }
 
 exports.config = {
-  execArgv: debug ? ['--inspect'] : [],
+  debug: true,
+  execArgv: debug ? ['--inspect-brk=127.0.0.1:5859'] : [],
+
+  seleniumInstallArgs: seleniumOptions,
+  seleniumArgs: seleniumOptions,
 
   // user: process.env.SAUCE_USERNAME,
   // key: process.env.SAUCE_ACCESS_KEY,
