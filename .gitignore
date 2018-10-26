@@ -4,11 +4,14 @@
 /dist
 /tmp
 /out-tsc
-/**/*/out-tsc
+/**/out-tsc
+
+# artifacts
+**/errorShots
+**/*.png
 
 # dependencies
-/node_modules
-/**/*/node_modules
+/**/node_modules
 
 # IDEs and editors
 /.idea
