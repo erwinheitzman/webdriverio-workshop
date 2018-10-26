@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Card } from '../card';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -9,22 +9,26 @@ import { INTRODUCTION, SKILLS } from './about-me';
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.css']
 })
-export class AboutMeComponent implements OnInit {
+export class AboutMeComponent {
   cardCollection: Card[];
-  submitted = false;
   intro = INTRODUCTION.split('\n');
   topics = Object.keys(SKILLS);
   skills = SKILLS;
+  submitted = false;
+  private tries = 0;
 
   constructor(private dialog: MatDialog) { }
 
-  ngOnInit() {
-console.log(this.intro);
-  }
-
   onSubmit() {
-    this.submitted = true;
-    this.dialog.open(DialogComponent);
+    const randomNumber = Math.round(Math.random());
+
+    if (this.tries && randomNumber) {
+      this.submitted = true;
+      this.dialog.open(DialogComponent);
+    } else {
+      this.tries++;
+      alert('Something went wrong!');
+    }
   }
 
 }
