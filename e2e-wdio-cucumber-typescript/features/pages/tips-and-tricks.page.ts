@@ -1,14 +1,18 @@
 import { Page } from './page';
 import { Card } from '../components/card.component';
-import { searchBar } from '../components/search-bar.component';
+import { Search } from '../components/search-bar.component';
 
 export class TipsAndTricksPage extends Page {
   card;
-  searchBar;
+  search;
 
   constructor() {
     super();
     this.card = new Card();
-    this.searchBar = searchBar();
+    this.search = new Search();
+  }
+
+  navigateTo() {
+    super.navigateTo('tips-and-tricks');
   }
 }

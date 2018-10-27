@@ -15,5 +15,5 @@ Then('Title should match {string}', (title) => {
 });
 
 When('I type {string} into the searchbar', (input) => {
-  tipsAndTricksPage.searchBar.setValue(input);
+  tipsAndTricksPage.search.bar.setValue(input);
 });
