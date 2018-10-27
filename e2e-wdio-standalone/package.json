@@ -4,15 +4,12 @@
   "description": "",
   "main": "wdio.conf.js",
   "scripts": {
-    "start:selenium": "java -jar selenium-server-standalone-3.5.3.jar",
-    "test": "mocha -t 30000 ./test/launcher.js"
+    "start": "java -jar selenium-server-standalone-3.14.0.jar",
+    "test": "node test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "require-dir": "^1.1.0",
     "webdriverio": "^4.13.2"
   }
 }
