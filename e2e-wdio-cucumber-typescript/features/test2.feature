@@ -1,6 +1,7 @@
-Feature: To search appium in google & verify appium webpage
+Feature: Search for cat on the tips and tricks page
 
-@AppiumSearchScenario
-Scenario: Appium Google Search
+@SearchForCat
+Scenario: Search for cat
 Given I am on the tips and tricks page
-Then Title should match "Golden Retriever"
+When I type "cat" into the searchbar
+Then Title should match "Yellow cat" eventually

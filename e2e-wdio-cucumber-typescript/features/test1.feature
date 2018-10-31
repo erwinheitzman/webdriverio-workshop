@@ -1,6 +1,6 @@
-Feature: To search appium in google & verify appium webpage
+Feature: To load the tips and tricks page
 
-@AppiumSearchScenario
-Scenario: Appium Google Search
+@LoadTipsAndTricksPage
+Scenario: Load tips and tricks page
 Given I am on the tips and tricks page
 Then Title should match "Golden Retriever"

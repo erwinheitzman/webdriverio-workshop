@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { createBrowserLogs } = require('./logger');
 
 const debug = process.env.DEBUG;
 
@@ -97,6 +98,7 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    */
   onPrepare: function (config, capabilities) {
+    removeDirSync('browser_logs');
     removeDirSync(config.screenshotPath);
   },
 
@@ -155,16 +157,17 @@ exports.config = {
    * Runs after a Cucumber step
    * @param {Object} stepResult step result
    */
-  afterStep: function (stepResult) {
-    // TODO: add logging of console errors
-  },
+  // afterStep: function (stepResult) {
+  // },
 
   /**
    * Runs after a Cucumber scenario
    * @param {Object} scenario scenario details
    */
-  // afterScenario: function (scenario) {
-  // },
+  afterScenario: function (scenario) {
+    const name = scenario.name.toLowerCase().replace(/\s+/g, '_');
+    createBrowserLogs(name);
+  },
 
   /**
    * Runs after a Cucumber feature

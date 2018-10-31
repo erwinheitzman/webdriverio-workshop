@@ -1,6 +1,4 @@
-const {
-  expect
-} = require('chai');
+const { expect } = require('chai');
 const fs = require('fs');
 
 const seleniumOptions = {
