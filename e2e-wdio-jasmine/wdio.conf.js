@@ -57,7 +57,10 @@ exports.config = {
     // 5 instances get started at a time.
     maxInstances: 5,
     //
-    browserName: 'firefox'
+    browserName: 'chrome',
+    chromeOptions: {
+      mobileEmulation: { deviceName: 'Galaxy S5' },
+    }
   }],
   //
   // ===================

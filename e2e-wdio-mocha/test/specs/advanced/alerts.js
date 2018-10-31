@@ -4,20 +4,10 @@ const waitForAlertDisplayed = (timeout, message, invertCondition) =>
       .then(() => !invertCondition, () => !!invertCondition);
   }, timeout, message);
 
-let num = 0;
-
 describe('alerts', () => {
 
-  before(() => {
-    browser.url('/');
-  });
-
-  beforeEach(() => {
-    if (num) {
-    browser.execute(() => setTimeout(() => alert('HI!'), 2000));
-    } else {
-      num++;
-    }
+  beforeEach(async () => {
+    browser.execute(async () => setTimeout(() => alert('HI!'), 2000));
   });
 
   afterEach(() => {
@@ -37,6 +27,7 @@ describe('alerts', () => {
     expect(browser.alertText()).to.equal('HI!');
     browser.alertDismiss();
     waitForAlertDisplayed(null, null, true);
+    expect(() => browser.alertText()).to.throw('no such alert');
   });
 
   it('should fail on timeout', () => {

@@ -1,6 +1,6 @@
 import { Page } from './page';
 import { Card } from '../components/card.component';
-import { Search } from '../components/search-bar.component';
+import { Search } from '../components/search.component';
 
 export class TipsAndTricksPage extends Page {
   card;
