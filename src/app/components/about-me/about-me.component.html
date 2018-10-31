@@ -25,22 +25,31 @@
       <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
         <p>
           <mat-form-field>
-            <input matInput placeholder="Name">
+            <input matInput required placeholder="Name">
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
-            <input matInput placeholder="Last name">
+            <input matInput type="date" required placeholder="Date">
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
-            <input matInput placeholder="Email">
+            <input matInput required placeholder="Email" type="email">
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
-            <textarea matInput placeholder="Leave a message"></textarea>
+            <mat-select placeholder="Attribute">
+              <mat-option value="strengt">Strength</mat-option>
+              <mat-option value="vitality">Vitality</mat-option>
+              <mat-option value="dexterity">Dexterity</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <textarea matInput required placeholder="Leave a message"></textarea>
           </mat-form-field>
         </p>
         <p>

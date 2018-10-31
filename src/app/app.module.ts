@@ -11,7 +11,9 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatSlideToggleModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule,
+  MatDividerModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -42,7 +44,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatFormFieldModule,
     MatInputModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatDividerModule
   ],
   declarations: [
     AppComponent,

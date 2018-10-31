@@ -15,20 +15,20 @@ export class AboutMeComponent {
   topics = Object.keys(SKILLS);
   skills = SKILLS;
   submitted = false;
-  private tries = 0;
+  // private tries = 0;
 
   constructor(private dialog: MatDialog) { }
 
   onSubmit() {
-    const randomNumber = Math.round(Math.random());
+    // const randomNumber = Math.round(Math.random());
 
-    if (this.tries && randomNumber) {
-      this.submitted = true;
+    // if (this.tries && randomNumber) {
+      // this.submitted = true;
       this.dialog.open(DialogComponent);
-    } else {
-      this.tries++;
-      alert('Something went wrong!');
-    }
+    // } else {
+      // this.tries++;
+      // alert('Something went wrong!');
+    // }
   }
 
 }
