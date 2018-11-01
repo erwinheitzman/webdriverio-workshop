@@ -8,10 +8,10 @@ const debug = process.env.DEBUG;
 const seleniumOptions = {
   drivers: {
     chrome: {
-      version: 'X.XX' // TODO add the latest ChromeDriver version found at http://chromedriver.chromium.org/downloads
+      version: '2.43'
     },
     firefox: {
-      version: 'X.XX.X' // TODO add the latest GeckoDriver version found at https://github.com/mozilla/geckodriver/releases
+      version: '0.23.0'
     }
   }
 };
@@ -32,23 +32,19 @@ function removeDirSync(path) {
 
 exports.config = {
   debug: true,
-  execArgv: debug ? [/* TODO: add --inspect-brk argument in order to debug from IDE */] : [],
+  execArgv: debug ? [/* TODO - debug IDE: add --inspect-brk argument in order to debug from IDE */] : [],
 
-  // Update Selenium or the browser drivers to a specific version
-  // TODO: add seleniumInstallArgs and seleniumArgs property and add the seleniumOptions to both
-
-  // Connect to Saucelabs and run your tests in the cloud
-  // TODO: add process.env.SAUCE_USERNAME
-  // TODO: add process.env.SAUCE_ACCESS_KEY
+  seleniumInstallArgs: seleniumOptions,
+  seleniumArgs: seleniumOptions,
 
   specs: [
     './features/**/*.feature'
   ],
 
-  // TODO: change maxInstances to 1 if in debug mode
+  // TODO - debug: change maxInstances to 1 if in debug mode
   maxInstances: 20,
 
-  // TODO: change capabilities to only run basic Chrome and nothing more if in debug mode
+  // TODO - debug: change capabilities to only run basic Chrome and nothing more if in debug mode
   capabilities: [{
       maxInstances: 5,
       browserName: 'chrome'
@@ -89,7 +85,7 @@ exports.config = {
     strict: false, // <boolean> fail if there are any undefined or pending steps
     tags: [], // <string[]> (expression) only execute the features or scenarios with tags matching the expression
 
-    // TODO: change timeout to (24 * 60 * 60 * 1000) or another high number if in debug mode
+    // TODO - debug: change timeout to (24 * 60 * 60 * 1000) or another high number if in debug mode
     timeout: 20000, // <number> timeout for step definitions
     ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
   },

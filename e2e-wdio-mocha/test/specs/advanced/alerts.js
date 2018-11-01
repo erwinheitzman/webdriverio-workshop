@@ -1,8 +1,4 @@
-const waitForAlertDisplayed = (timeout, message, invertCondition) =>
-  browser.waitUntil(function() {
-    return this.alertText()
-      .then(() => !invertCondition, () => !!invertCondition);
-  }, timeout, message);
+const waitForAlertDisplayed; // TODO - wait for alert method
 
 describe('alerts', () => {
 

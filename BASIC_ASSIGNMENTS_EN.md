@@ -1,9 +1,32 @@
+# Preperation
+
+  Start the app
+
+  Open a terminal window
+
+  In the root folder run `npm i` to install the required packages
+
+  Run `npm start` from your terminal
+
+# Add the latest browser drivers to your WebdriverIO config
+  Use the [documentation](http://webdriver.io/guide/services/selenium-standalone.html#seleniumArgs) if needed
+
+  Open another terminal window and change directory to `e2e-wdio-mocha`
+
+  In the root folder run `npm i` to install the required packages
+
+  Open your `wdio.conf.js` file
+
+  Look for comments that contain `TODO -selenium and drivers config`
+
+  Lookup the latest drivers versions using the link found in the comment and add them to the object
+
+  Add the selenium config object to your config using the properties `seleniumInstallArgs` and `seleniumArgs`
+
 # Create page object models, components and run tests
   Use the [documentation](http://webdriver.io/guide/testrunner/pageobjects.html) if needed
 
   Open a terminal window
-
-  Run `npm start` from your terminal
 
   Open another terminal window and change directory to `e2e-wdio-jasmine`
 
@@ -12,7 +35,6 @@
   Create a page object called `Page` `[page.js]`
   
     1. Add a method called `navigateTo` and make it navigate to a specific path which is passed in as an argument
-
 
   Create a page object called `TipsAndTricksPage`for the tips-and-tricks page `[tips-and-tricks.js]` in the following location `./e2e-wdio-jasmine/test/pages`
 

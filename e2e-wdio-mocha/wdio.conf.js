@@ -4,10 +4,10 @@ const fs = require('fs');
 const seleniumOptions = {
   drivers: {
     chrome: {
-      version: '2.43'
+      version: 'X.XX' // TODO -selenium and drivers config: add the latest ChromeDriver version found at http://chromedriver.chromium.org/downloads
     },
     firefox: {
-      version: '0.23.0'
+      version: 'X.XX.X' // TODO - selenium and drivers config: add the latest GeckoDriver version found at https://github.com/mozilla/geckodriver/releases
     }
   }
 };
@@ -28,8 +28,11 @@ function removeDirSync(path) {
 
 exports.config = {
 
-  seleniumInstallArgs: seleniumOptions,
-  seleniumArgs: seleniumOptions,
+  // TODO - selenium and drivers config: add seleniumInstallArgs and seleniumArgs property and add the seleniumOptions to both
+
+  // TODO - connect to saucelabs user
+  // TODO - connect to saucelabs key
+
   //
   // ==================
   // Specify Test Files
