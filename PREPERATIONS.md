@@ -27,3 +27,12 @@
 ## Done
 
   Open nog een terminal window om later de testen in te draaien
+
+## Tips
+
+  Wil je maar een file runnen dan kun je de --spec flag gebruiken om de specs te overschrijven
+
+  Voorbeeld:
+  ```
+  npm test -- --spec ./test/specs/basic/drag-and-drop.js
+  ```

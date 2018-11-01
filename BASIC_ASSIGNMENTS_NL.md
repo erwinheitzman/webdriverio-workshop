@@ -62,6 +62,30 @@
 
   Run de tests door `npm test` uit te voeren
 
+# Schrijf een test
+
+  Open de file genaamd `e2e-wdio-mocha/test/specs/drag-and-drop.js`
+
+  Voeg een `before` hook toe aan het `describe` block
+
+  Voeg het volgende toe aan de `before` hook:
+  
+  ```
+  browser.url('https://marcojakob.github.io/dart-dnd/basic/');
+  ```
+
+  Gebruik het `dragAndDrop` command om de documenten op de pagina in de trashbin te slepen
+
+  Hiervoor kun je de volgende selectors toepassen
+    De documenten kunnen worden opgehaald met `.document`
+    De trashbin kan worden opgehaald met `.trash`
+
+  Valideer dat de lengte van het aantal aanwezige documenten elke keer met 1 afneemt, elke keer dat je een document in de trashbin plaatst
+
+  Valideer aan het einde dat er geen documenten meer aanwezig zijn
+
+  Valideer dat de trashbin gevuld is door te kijken of deze de classname `full` bevat
+
 # Create suites
 
   Gebruik de [documentatie](http://webdriver.io/guide/testrunner/organizesuite.html#Group-Test-Specs) wanneer nodig
@@ -77,6 +101,9 @@
   Gebruik de [documentatie](http://webdriver.io/guide/testrunner/organizesuite.html#Group-Test-Specs) wanneer nodig
 
   Het is een best practice om geen sensitive data in je code te plaatsen, in plaats daarvan kun je environment variables gebruiken die op je locale machine worden opgeslagen.
+
+  De te gebruiken user is `webdriverio-workshop-user`
+  De te gebruiken key is `webdriverio-rulez`
 
   ## Setting Environment Variables for Mac OS X/Linux
     In Terminal mode, enter vi ~/.bash_profile, and then press Enter.
@@ -110,3 +137,15 @@
   Voeg een property genaamd `key` toe, net onder de regel waar de `exports.config` begint en gebruik  `process.env.SAUCE_ACCESS_KEY` als waarde
 
   Run de tests door `npm test` uit te voeren
+
+# BONUS: Vind de bug
+
+  Open de file genaamd `e2e-wdio-mocha/test/specs/tips-and-tricks.js`
+
+  Ga naar de test genaamd `should assert all text content of the cards`
+
+  Deze test valideert de tekst content van de geladen card elementen. De tekst van deze cards zou overal het zelfde moeten zijn echter lijkt er een bugje in de content te zitten.
+
+  Weet jij de bug te vinden? Vul hier onder het antwoord in!
+
+  De bug is: 

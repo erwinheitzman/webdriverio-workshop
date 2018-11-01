@@ -1,0 +1,4 @@
+
+> e2e-wdio-mocha@1.0.0 test /Users/erwinheitzman/Documents/personal/test_projects/ng-blog/e2e-wdio-mocha
+> wdio "drag" "and" "drop" "-" "elements"
+
