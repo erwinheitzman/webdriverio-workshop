@@ -1,15 +1,17 @@
 const fs = require('fs');
-const { createBrowserLogs } = require('./logger');
+
+// TODO: import createBrowserLogs from ./logger
+// const { createBrowserLogs } = require('./logger');
 
 const debug = process.env.DEBUG;
 
 const seleniumOptions = {
   drivers: {
     chrome: {
-      version: '2.43'
+      version: 'X.XX' // TODO add the latest ChromeDriver version found at http://chromedriver.chromium.org/downloads
     },
     firefox: {
-      version: '0.23.0'
+      version: 'X.XX.X' // TODO add the latest GeckoDriver version found at https://github.com/mozilla/geckodriver/releases
     }
   }
 };
@@ -30,21 +32,24 @@ function removeDirSync(path) {
 
 exports.config = {
   debug: true,
-  execArgv: debug ? ['--inspect-brk=127.0.0.1:5859'] : [],
+  execArgv: debug ? [/* TODO: add --inspect-brk argument in order to debug from IDE */] : [],
 
-  seleniumInstallArgs: seleniumOptions,
-  seleniumArgs: seleniumOptions,
+  // Update Selenium or the browser drivers to a specific version
+  // TODO: add seleniumInstallArgs and seleniumArgs property and add the seleniumOptions to both
 
-  // user: process.env.SAUCE_USERNAME,
-  // key: process.env.SAUCE_ACCESS_KEY,
+  // Connect to Saucelabs and run your tests in the cloud
+  // TODO: add process.env.SAUCE_USERNAME
+  // TODO: add process.env.SAUCE_ACCESS_KEY
 
   specs: [
     './features/**/*.feature'
   ],
-  maxInstances: debug ? 1 : 20,
-  capabilities: debug ? [{
-    browserName: 'chrome'
-  }] : [{
+
+  // TODO: change maxInstances to 1 if in debug mode
+  maxInstances: 20,
+
+  // TODO: change capabilities to only run basic Chrome and nothing more if in debug mode
+  capabilities: [{
       maxInstances: 5,
       browserName: 'chrome'
     },
@@ -52,13 +57,8 @@ exports.config = {
       maxInstances: 5,
       browserName: 'firefox'
     },
-    {
-      maxInstances: 5,
-      browserName: 'chrome',
-      chromeOptions: {
-        binary: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
-      }
-    }
+    // Add a custom browser
+    // TODO: add Chrome Canary
   ],
   sync: true,
   logLevel: 'silent', // silent | verbose | command | data | result | error
@@ -75,8 +75,8 @@ exports.config = {
   reporters: ['dot'],
 
   cucumberOpts: {
-    compiler: ['ts:ts-node/register'],
-    require: ['./dist/out-tsc/e2e/**/*.js'], // <string[]> (file/dir) require files before executing features
+    compiler: [/* add TypeScript */],
+    require: [/* add TypeScript output */], // <string[]> (file/dir) require files before executing features
     backtrace: false, // <boolean> show full backtrace for errors
     compiler: [], // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
     dryRun: false, // <boolean> invoke formatters without executing steps
@@ -88,7 +88,9 @@ exports.config = {
     profile: [], // <string[]> (name) specify the profile to use
     strict: false, // <boolean> fail if there are any undefined or pending steps
     tags: [], // <string[]> (expression) only execute the features or scenarios with tags matching the expression
-    timeout: debug ? (24 * 60 * 60 * 1000) : 20000, // <number> timeout for step definitions
+
+    // TODO: change timeout to (24 * 60 * 60 * 1000) or another high number if in debug mode
+    timeout: 20000, // <number> timeout for step definitions
     ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
   },
 
@@ -118,11 +120,8 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
-  before: function (capabilities, specs) {
-    // browser.timeouts('script', 3000);
-    // browser.timeouts('implicit', 3000);
-    // browser.timeouts('page load', 10);
-  },
+  // before: function (capabilities, specs) {
+  // },
 
   /**
    * Runs before a WebdriverIO command gets executed.
@@ -166,7 +165,9 @@ exports.config = {
    */
   afterScenario: function (scenario) {
     const name = scenario.name.toLowerCase().replace(/\s+/g, '_');
-    createBrowserLogs(name);
+    
+    // Add a logger that logs console errors
+    // TODO: add createBrowserLogs(name) here
   },
 
   /**

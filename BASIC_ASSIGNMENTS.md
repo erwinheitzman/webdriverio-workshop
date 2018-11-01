@@ -1,32 +1,30 @@
-Create a page object for each page
+# Create page object models, components and run tests
+  Use the [documentation](http://webdriver.io/guide/testrunner/pageobjects.html) if needed
+
+  Open a terminal window
+
+  Run `npm start` from your terminal
+
+  Open another terminal window and change directory to `e2e-wdio-jasmine`
+
+  Run `npm i` from your terminal in order to install the required packages
+
   Create a page object called `Page` `[page.js]`
+  
     1. Add a method called `navigateTo` and make it navigate to a specific path which is passed in as an argument
 
-  Create a page object called `AboutMePage` for the about-me page `[about-me.js]`
-    1. import the main page class
-    2. extend the main page class with the new class
-    3. implement the following methods
-      name - get name input element
-      date - get date input element
-      email - get email input element
-      attribute - get attribute select element
-      selectedAttribute - get the selected value from the attribute element
-      dropdown - get the general dropdown element for Angular select elements
-      message - get message textarea element
-      submit - get submit button element
-      navigateTo - use the navigateTo method from the main page class to navigate to the about-me page
-      selectByVisibleText - create custom method for Angular select elements
 
-  Create a page object called `TipsAndTricksPage`for the tips-and-tricks page `[tips-and-tricks.js]`
+  Create a page object called `TipsAndTricksPage`for the tips-and-tricks page `[tips-and-tricks.js]` in the following location `./e2e-wdio-jasmine/test/pages`
+
     1. import the main page class
     2. extend the main page class with the new class
     3. implement the following methods
         getCardByTitle - get a specific Angular card element by title
         getCards - get all the Angular card elements on the page
-        navigateTo - navigate to the tips-and-tricks page
+        navigateTo - navigate to the tips-and-tricks page (tip: do not forget to use the `super` keyword here)
 
-Create a dialog, card and search component and add them to the page objects you've just created
-  card component
+  Create a card and search component and add them to the page objects you've just created
+
     title
       1. add a getter called `title`
       2. retrieve the title element using the following selector `.mat-card-title`
@@ -39,51 +37,70 @@ Create a dialog, card and search component and add them to the page objects you'
       1. add a getter called `content`
       2. retrieve the content element using the following selector `.mat-card-content`
 
-  search
-    bar
-      1. add a getter called `bar`
-      2. retrieve the search bar element using the following selector `#searchbar`
+    search
+      bar
+        1. add a getter called `bar`
+        2. retrieve the search bar element using the following selector `#searchbar`
 
-  dialog
-    container
-      1. add a getter called `container`
-      2. retrieve the container element using the following selector `mat-dialog-container`
+  Add the card component to the tips-and-tricks page
 
-    close
-      1. add a getter called `close`
-      2. retrieve the close element using the following selector `mat-dialog-actions button.mat-button`
+    1. import the card component into the tips-and-tricks page
+    2. create a constructor
+    3. add this.card to the constructor and assign a new instance of the card component class
 
-    content
-      1. add a getter called `content`
-      2. retrieve the content element using the following selector `mat-dialog-content`
+  Add the search component to the tips-and-tricks page
 
-    title
-      1. add a getter called `title`
-      2. retrieve the title element using the following selector `h1.mat-dialog-title`
+    1. import the search component into the tips-and-tricks page
+    2. create a constructor
+    3. add `this.search` to the constructor and assign a new instance of the search component class
 
-  Add the components to the page objects where they are used
-    add the dialog component to the about-me page
-      1. import the dialog component into the about-me page
-      2. create a constructor
-      3. add this.dialog to the constructor and assign a new instance of the dialog component class
+  Run the tests that are predefined in the `e2e-wdio-jasmine` folder by running `npm test` from the terminal
 
-    add the card component to the tips-and-tricks page
-      1. import the card component into the tips-and-tricks page
-      2. create a constructor
-      3. add this.card to the constructor and assign a new instance of the card component class
+# Create suites
 
-    add the search component to the tips-and-tricks page
-      1. import the search component into the tips-and-tricks page
-      2. create a constructor
-      3. add `this.search` to the constructor and assign a new instance of the search component class
+  Use the [documentation](http://webdriver.io/guide/testrunner/organizesuite.html#Group-Test-Specs) if needed
 
-Create tests for all the predefined describe/it blocks in `e2e-wdio-mocha/basic`
+  Add one suite called `basic`
 
-Create tests for the tips-and-tricks page in the `tips-and-tricks.js` file
-  1. in the beforeEach, call the navigateTo method and waitFor the first card title to be visible
-  
-  should get the classes from the card title element
-    add
+  Add one suite called `advanced`
 
-Create two suites, one called `basic` and one called `advanced`
   Run only the basic tests using the `--suite` flag
+
+# Run in the cloud
+
+  Use the [documentation](http://webdriver.io/guide/testrunner/organizesuite.html#Group-Test-Specs) if needed
+
+  It's a best practice to not put sensitive data in your code, instead use environment variables to be stored on your machine.
+
+  ## Setting Environment Variables for Mac OS X/Linux
+    In Terminal mode, enter vi ~/.bash_profile, and then press Enter.
+    Press i to insert text into your profile file.
+    Enter these lines:
+
+    export SAUCE_USERNAME="your Sauce username"
+    export SAUCE_ACCESS_KEY="your sauce access key"
+    Press Escape.
+    Hold Shift and press Z twice (z z) to save your file and quit vi.
+
+    In the terminal, enter source ~/.bash_profile.
+
+  ## Setting Environment Variables for Authentication Credentials on Windows
+    Click Start on the task bar.
+    For Search programs and fields, enter Environment Variables.
+    Click Edit the environment variables. 
+    This will open the System Properties dialog.
+    Click Environment Variables. 
+    This will open the Environment Variables dialog.
+    In the System variables section, click New.
+    This will open the New System Variable dialog.
+    For Variable name, enter SAUCE_USERNAME.
+    For Variable value, enter your Sauce username.
+    Click OK.
+    Repeat 4 - 8 to set up the SAUCE_ACCESS_KEY.
+
+  Open your `wdio.conf.js` file
+
+  Add a property called `user` the top, just below the exports.config part and add the following value `process.env.SAUCE_USERNAME`\
+  Add a property called `key` the top, just below the exports.config part and add the following value `process.env.SAUCE_ACCESS_KEY`
+
+  Run the tests using `npm test`
