@@ -1,16 +1,6 @@
-# Preperation
-
-  Open your terminal
-
-  Change to the `e2e-wdio-cucumber-typescript` directory
-
-  Run `npm i` to install all the dependencies
-
 # Add typescript
 
   Use the [documentation](http://webdriver.io/guide/getstarted/configuration.html#Setup-TypeScript) if needed
-
-  Run `npm i` to install all the dependencies
 
   Implement TypeScript as shown in the documentation
 
@@ -107,8 +97,6 @@
       invertCondition | boolean
 
   For this assignment switch to the `e2e-wdio-mocha` directory
-
-  Run `npm i` to install all the dependencies if needed
 
   Open the `e2e-wdio-mocha/test/specs/advanced` directory
 

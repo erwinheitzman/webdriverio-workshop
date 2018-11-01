@@ -1,19 +1,7 @@
-# Preperation
-
-  Start the app
-
-  Open a terminal window
-
-  In the root folder run `npm i` to install the required packages
-
-  Run `npm start` from your terminal
-
 # Add the latest browser drivers to your WebdriverIO config
   Use the [documentation](http://webdriver.io/guide/services/selenium-standalone.html#seleniumArgs) if needed
 
   Open another terminal window and change directory to `e2e-wdio-mocha`
-
-  In the root folder run `npm i` to install the required packages
 
   Open your `wdio.conf.js` file
 
@@ -29,8 +17,6 @@
   Open a terminal window
 
   Open another terminal window and change directory to `e2e-wdio-jasmine`
-
-  Run `npm i` from your terminal in order to install the required packages
 
   Create a page object called `Page` `[page.js]`
   

@@ -1,19 +1,7 @@
-# Preperation
-
-  Start de app
-
-  Open een terminal window
-
-  In de root folder run `npm i` om je dependencies te installeren
-
-  Run `npm start` vanuit je terminal om de app te starten op poort 4200
-
 # Add the latest browser drivers to your WebdriverIO config
   Gebruik de [documentatie](http://webdriver.io/guide/services/selenium-standalone.html#seleniumArgs) wanneer nodig
 
-  Open another terminal window and change directory to `e2e-wdio-mocha`
-
-  Run `npm i` om je dependencies te installeren
+  Ga naar de `e2e-wdio-mocha` directory
 
   Open de file genaamd `wdio.conf.js`
 
@@ -26,71 +14,69 @@
 # Create page object models, components and run tests
   Gebruik de [documentatie](http://webdriver.io/guide/testrunner/pageobjects.html) wanneer nodig
 
-  Open nog een terminal window en ga naar de `e2e-wdio-jasmine` directory
+  Ga naar de `e2e-wdio-jasmine` directory
 
-  Run `npm i` from your terminal in order to install the required packages
-
-  Create a page object called `Page` `[page.js]`
+  Maak een page object genaamd `Page` `[page.js]`
   
-    1. Add a method called `navigateTo` and make it navigate to a specific path which is passed in as an argument
+    1. Voeg een methode genaamd `navigateTo` toe en laat deze naar een specifiek pad navigeren welke als argument/parameter word mee gegeven
 
-  Create a page object called `TipsAndTricksPage`for the tips-and-tricks page `[tips-and-tricks.js]` in the following location `./e2e-wdio-jasmine/test/pages`
+  Maak een page object genaamd `TipsAndTricksPage` voor de tips-and-tricks pagina `[tips-and-tricks.js]` in de  `./e2e-wdio-jasmine/test/pages` directory
 
-    1. import the main page class
-    2. extend the main page class with the new class
-    3. implement the following methods
-        getCardByTitle - get a specific Angular card element by title
-        getCards - get all the Angular card elements on the page
-        navigateTo - navigate to the tips-and-tricks page (tip: do not forget to use the `super` keyword here)
+    1. importeer de main page class
+    2. extend de main page class met de nieuwe class
+    3. implementeer de onderstaande methodes
+        getCardByTitle - haal een specifiek Angular card element op d.m.v. een title
+        getCards - haal alle Angular card elements op van de pagina
+        navigateTo - navigeer naar de tips-and-tricks pagina (tip: vergeet niet het `super` keyword hier te gebruiken)
 
-  Create a card and search component and add them to the page objects you've just created
+  Maak een Card en Search component en voeg ze toe aan de page objects die je net hebt gemaakt
 
     title
-      1. add a getter called `title`
-      2. retrieve the title element using the following selector `.mat-card-title`
+      1. voeg een getter genaamd `title` toe
+      2. haal het title element op met deze selector `.mat-card-title`
 
     subTitle
-      1. add a getter called `subTitle`
-      2. retieve the subTitle element using the following selector `.mat-card-subtitle`
+      1. voeg een getter genaamd `subTitle` toe
+      2. haal het subTitle element op met deze selector `.mat-card-subtitle`
 
     content
-      1. add a getter called `content`
-      2. retrieve the content element using the following selector `.mat-card-content`
+      1. voeg een getter genaamd `content` toe
+      2. haal het content element op met deze selector `.mat-card-content`
 
     search
       bar
-        1. add a getter called `bar`
-        2. retrieve the search bar element using the following selector `#searchbar`
+        1. voeg een getter genaamd `bar` toe
+        2. haal het search bar element op met deze selector `#searchbar`
 
-  Add the card component to the tips-and-tricks page
+  Voeg de Card component toe aan het tips-and-tricks page object
 
-    1. import the card component into the tips-and-tricks page
-    2. create a constructor
-    3. add this.card to the constructor and assign a new instance of the card component class
+    1. importeer de Card component in de tips-and-tricks page object
+    2. voeg een constructor toe
+    3. voeg `this.card` toe aan de constructor en assign een nieuwe instance van de Card component class
 
   Add the search component to the tips-and-tricks page
 
-    1. import the search component into the tips-and-tricks page
-    2. create a constructor
-    3. add `this.search` to the constructor and assign a new instance of the search component class
+    1. importeer de Search component in de tips-and-tricks page object
+    2. voeg een constructor toe
+    3. voeg `this.search` toe aan de constructor en assign een nieuwe instance van de Search component class
 
-  Run the tests that are predefined in the `e2e-wdio-jasmine` folder by running `npm test` from the terminal
+  Run de tests door `npm test` uit te voeren
 
 # Create suites
 
   Gebruik de [documentatie](http://webdriver.io/guide/testrunner/organizesuite.html#Group-Test-Specs) wanneer nodig
 
-  Add one suite called `basic`
+  Voeg een suite genaamd `basic` toe aan de config
 
-  Add one suite called `advanced`
+  Voeg een suite genaamd `advanced` toe aan de config
 
-  Run only the basic tests using the `--suite` flag
+  Run alleen de basic tests door de `--suite` flag te gebruiken
 
 # Run in the cloud
 
   Gebruik de [documentatie](http://webdriver.io/guide/testrunner/organizesuite.html#Group-Test-Specs) wanneer nodig
 
-  It's a best practice to not put sensitive data in your code, instead use environment variables to be stored on your machine.
+  Het is een best practice om geen sensitive data in je code te plaatsen, in plaats daarvan kun je environment variables gebruiken die op je locale machine worden opgeslagen.
 
   ## Setting Environment Variables for Mac OS X/Linux
     In Terminal mode, enter vi ~/.bash_profile, and then press Enter.
@@ -118,9 +104,9 @@
     Click OK.
     Repeat 4 - 8 to set up the SAUCE_ACCESS_KEY.
 
-  Open your `wdio.conf.js` file
+  Open de file genaamd `wdio.conf.js`
 
-  Add a property called `user` the top, just below the exports.config part and add the following value `process.env.SAUCE_USERNAME`\
-  Add a property called `key` the top, just below the exports.config part and add the following value `process.env.SAUCE_ACCESS_KEY`
+  Voeg een property genaamd `user` toe, net onder de regel waar de `exports.config` begint en gebruik  `process.env.SAUCE_USERNAME` als waarde\
+  Voeg een property genaamd `key` toe, net onder de regel waar de `exports.config` begint en gebruik  `process.env.SAUCE_ACCESS_KEY` als waarde
 
-  Run the tests using `npm test`
+  Run de tests door `npm test` uit te voeren

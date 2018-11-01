@@ -1,16 +1,6 @@
-# Preperation
-
-  Open je terminal
-
-  Ga naar de `e2e-wdio-cucumber-typescript` directory
-
-  Run `npm i` om je dependencies te installeren
-
 # Add typescript
 
   Gebruik de [documentatie](http://webdriver.io/guide/getstarted/configuration.html#Setup-TypeScript) wanneer nodig
-
-  Run `npm i` om je dependencies te installeren
 
   Voeg TypeScript toe zoals in de documentatie word beschreven
 
@@ -37,7 +27,7 @@
 
 # Add a custom browser
 
-  Open your `wdio.conf.js` file
+  Open de file genaamd `wdio.conf.js`
 
   Ga naar de capabilities
 
@@ -60,13 +50,13 @@
 
   Open de file genaamd `logger.js`
 
-  Breidt de logger method out zodat deze werkt
+  Breidt de logger method uit zodat deze werkt
 
   Run de tests door `npm test` uit te voeren
 
-  Validate dat de `browser_logs` directory is aangemaakt
+  Valideer dat de `browser_logs` directory is aangemaakt
 
-  Validate dat de `browser_logs` directory een aantal log files bevat
+  Valideer dat de `browser_logs` directory een aantal log files bevat
 
 # Create a proper debugging setup
 
@@ -107,8 +97,6 @@
       invertCondition | boolean
 
   Voor deze opdracht switch je naar de `e2e-wdio-mocha` directory
-
-  Run `npm i` om je dependencies te installeren wanneer nodig
 
   Open de `e2e-wdio-mocha/test/specs/advanced` directory
 
