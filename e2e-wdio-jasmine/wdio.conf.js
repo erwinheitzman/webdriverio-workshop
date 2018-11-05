@@ -1,3 +1,5 @@
+const { expect } = require('chai');
+
 const seleniumOptions = {
   drivers: {
     chrome: {
@@ -185,7 +187,7 @@ exports.config = {
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
   before: function (capabilities, specs) {
-    // TODO: add chai.expect as a global variable called expect
+    global.expect = expect;
   },
   /**
    * Runs before a WebdriverIO command gets executed.
